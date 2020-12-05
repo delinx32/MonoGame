@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace Microsoft.Xna.Framework.Design
 {
-    public class Vector2TypeConverter : TypeConverter
+    public class Vector3IntTypeConverter : TypeConverter
     {
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
@@ -22,19 +22,20 @@ namespace Microsoft.Xna.Framework.Design
 
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            var vec = (Vector2)value;
+            var vec = (Vector3Int)value;
 
             if (VectorIntConversion.CanConvertTo(context, destinationType))
             {
-                var vec4 = new Vector4Int(vec.X, vec.Y, 0.0f, 0.0f);
+                var vec4 = new Vector4Int(vec.X, vec.Y, vec.Z, 0.0f);
                 return VectorIntConversion.ConvertToFromVector4(context, culture, vec4, destinationType);
             }
 
             if (destinationType == typeof(string))
             {
-                var terms = new string[2];
+                var terms = new string[3];
                 terms[0] = vec.X.ToString("R", culture);
                 terms[1] = vec.Y.ToString("R", culture);
+                terms[2] = vec.Z.ToString("R", culture);
 
                 return string.Join(culture.TextInfo.ListSeparator + " ", terms);
             }
@@ -53,7 +54,7 @@ namespace Microsoft.Xna.Framework.Design
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
             var sourceType = value.GetType();
-            var vec = Vector2Int.Zero;
+            var vec = Vector3Int.Zero;
 
             if (sourceType == typeof(string))
             {
@@ -62,6 +63,7 @@ namespace Microsoft.Xna.Framework.Design
 
                 vec.X = int.Parse(words[0], culture);
                 vec.Y = int.Parse(words[1], culture);
+                vec.Z = int.Parse(words[2], culture);
 
                 return vec;
             }

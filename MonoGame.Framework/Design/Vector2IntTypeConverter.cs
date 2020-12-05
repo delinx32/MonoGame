@@ -8,11 +8,11 @@ using System.Globalization;
 
 namespace Microsoft.Xna.Framework.Design
 {
-    public class Vector2TypeConverter : TypeConverter
+    public class Vector2IntTypeConverter : TypeConverter
     {
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            if (VectorIntConversion.CanConvertTo(context, destinationType))
+            if (VectorConversion.CanConvertTo(context, destinationType))
                 return true;
             if (destinationType == typeof(string))
                 return true;
@@ -22,12 +22,12 @@ namespace Microsoft.Xna.Framework.Design
 
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            var vec = (Vector2)value;
+            var vec = (Vector2Int)value;
 
-            if (VectorIntConversion.CanConvertTo(context, destinationType))
+            if (VectorConversion.CanConvertTo(context, destinationType))
             {
-                var vec4 = new Vector4Int(vec.X, vec.Y, 0.0f, 0.0f);
-                return VectorIntConversion.ConvertToFromVector4(context, culture, vec4, destinationType);
+                var vec4 = new Vector4(vec.X, vec.Y, 0.0f, 0.0f);
+                return VectorConversion.ConvertToFromVector4(context, culture, vec4, destinationType);
             }
 
             if (destinationType == typeof(string))
