@@ -35,6 +35,7 @@ namespace Microsoft.Xna.Framework.Graphics
                 }
             }
 
+            /*
             // XNA blacks out any pixels with an alpha of zero.
             fixed (byte* b = &result.Data[0])
             {
@@ -48,7 +49,7 @@ namespace Microsoft.Xna.Framework.Graphics
                     }
                 }
             }
-
+            */
             Texture2D texture = null;
             texture = new Texture2D(graphicsDevice, result.Width, result.Height);
             texture.SetData(result.Data);

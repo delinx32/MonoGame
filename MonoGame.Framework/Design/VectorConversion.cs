@@ -14,6 +14,8 @@ namespace Microsoft.Xna.Framework.Design
                 return true;
             if (destinationType == typeof(Vector2))
                 return true;
+            if (destinationType == typeof(Vector2Int))
+                return true;
             if (destinationType == typeof(Vector3))
                 return true;
             if (destinationType == typeof(Vector4))
@@ -30,6 +32,8 @@ namespace Microsoft.Xna.Framework.Design
                 return value.X;
             if (destinationType == typeof(Vector2))
                 return new Vector2(value.X, value.Y);
+            if (destinationType == typeof(Vector2Int))
+                return new Vector2Int(value.X, value.Y);
             if (destinationType == typeof(Vector3))
                 return new Vector3(value.X, value.Y, value.Z);
             if (destinationType == typeof(Vector4))
@@ -53,6 +57,8 @@ namespace Microsoft.Xna.Framework.Design
                 return true;
             if (destinationType == typeof(Vector2Int))
                 return true;
+            if (destinationType == typeof(Vector2))
+                return true;
             if (destinationType == typeof(Vector3Int))
                 return true;
             if (destinationType == typeof(Vector4Int))
@@ -68,6 +74,8 @@ namespace Microsoft.Xna.Framework.Design
                 return value.X;
             if (destinationType == typeof(Vector2Int))
                 return new Vector2Int(value.X, value.Y);
+            if (destinationType == typeof(Vector2))
+                return new Vector2(value.X, value.Y);
             if (destinationType == typeof(Vector3Int))
                 return new Vector3Int(value.X, value.Y, value.Z);
             if (destinationType == typeof(Vector4Int))

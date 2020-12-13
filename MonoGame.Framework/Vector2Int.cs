@@ -140,6 +140,7 @@ namespace Microsoft.Xna.Framework
             return value;
         }
 
+
         /// <summary>
         /// Adds two vectors.
         /// </summary>
@@ -153,6 +154,13 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+
+        public static Vector2Int operator +(Vector2Int value1, Vector2 value2)
+        {
+            value1.X += (int)value2.X;
+            value1.Y += (int)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Subtracts a <see cref="Vector2Int"/> from a <see cref="Vector2Int"/>.
         /// </summary>
@@ -166,6 +174,13 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+
+        public static Vector2Int operator -(Vector2Int value1, Vector2 value2)
+        {
+            value1.X -= (int)value2.X;
+            value1.Y -= (int)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Multiplies the components of two vectors by each other.
         /// </summary>
@@ -179,6 +194,13 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+
+        public static Vector2Int operator *(Vector2Int value1, Vector2 value2)
+        {
+            value1.X *= (int)value2.X;
+            value1.Y *= (int)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Multiplies the components of vector by a scalar.
         /// </summary>
@@ -219,6 +241,13 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+
+        public static Vector2Int operator /(Vector2Int value1, Vector2 value2)
+        {
+            value1.X /= (int)value2.X;
+            value1.Y /= (int)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Divides the components of a <see cref="Vector2Int"/> by a scalar.
         /// </summary>
@@ -255,6 +284,12 @@ namespace Microsoft.Xna.Framework
         {
             return value1.X != value2.X || value1.Y != value2.Y;
         }
+
+        public static explicit operator Vector2Int(Vector2 vec)
+        {
+            return new Vector2Int(vec.X, vec.Y);
+        }
+
 
         #endregion
 

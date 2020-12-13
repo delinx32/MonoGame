@@ -1771,6 +1771,16 @@ namespace Microsoft.Xna.Framework
             return new Color((int)(value.R * scale), (int)(value.G * scale), (int)(value.B * scale), (int)(value.A * scale));
         }
 
+        public static Color operator *(Color value, Color value2)
+        {
+            return new Color(value.R * value2.R, value.G * value2.G, value.B * value2.B, value.A * value2.B);
+        }
+
+        public static Color operator /(Color value, Color value2)
+        {
+            return new Color(value.R / value2.R, value.G / value2.G, value.B / value2.B, value.A / value2.B);
+        }
+
         public static Color operator *(float scale, Color value)
         {
             return new Color((int)(value.R * scale), (int)(value.G * scale), (int)(value.B * scale), (int)(value.A * scale));

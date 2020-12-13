@@ -147,6 +147,12 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+        public static Vector2 operator +(Vector2 value1, Vector2Int value2)
+        {
+            value1.X += (float)value2.X;
+            value1.Y += (float)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Subtracts a <see cref="Vector2"/> from a <see cref="Vector2"/>.
         /// </summary>
@@ -160,6 +166,12 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+        public static Vector2 operator -(Vector2 value1, Vector2Int value2)
+        {
+            value1.X -= (float)value2.X;
+            value1.Y -= (float)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Multiplies the components of two vectors by each other.
         /// </summary>
@@ -170,6 +182,13 @@ namespace Microsoft.Xna.Framework
         {
             value1.X *= value2.X;
             value1.Y *= value2.Y;
+            return value1;
+        }
+
+        public static Vector2 operator *(Vector2 value1, Vector2Int value2)
+        {
+            value1.X *= (float)value2.X;
+            value1.Y *= (float)value2.Y;
             return value1;
         }
 
@@ -213,6 +232,12 @@ namespace Microsoft.Xna.Framework
             return value1;
         }
 
+        public static Vector2 operator /(Vector2 value1, Vector2Int value2)
+        {
+            value1.X /= (float)value2.X;
+            value1.Y /= (float)value2.Y;
+            return value1;
+        }
         /// <summary>
         /// Divides the components of a <see cref="Vector2"/> by a scalar.
         /// </summary>
@@ -968,6 +993,12 @@ namespace Microsoft.Xna.Framework
             result.Y = value1.Y - value2.Y;
         }
 
+        public static explicit operator Vector2(Vector2Int vec)
+        {
+            return new Vector2((float)vec.X, (float)vec.Y);
+        }
+
+
         /// <summary>
         /// Returns a <see cref="String"/> representation of this <see cref="Vector2"/> in the format:
         /// {X:[<see cref="X"/>] Y:[<see cref="Y"/>]}
@@ -1255,6 +1286,7 @@ namespace Microsoft.Xna.Framework
             x = X;
             y = Y;
         }
+
 
         #endregion
     }
